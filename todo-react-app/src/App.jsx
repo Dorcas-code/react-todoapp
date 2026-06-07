@@ -57,6 +57,7 @@ function App() {
                 placeholder="Enter a new todo..."
                 required
                 aria-label="New todo item"
+                className="todo-input"
               />
               <button type="submit" className="add-btn">
                 Add Todo

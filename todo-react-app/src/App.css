@@ -66,7 +66,7 @@ main {
   margin-bottom: 16px;
 }
 
-#todo-input {
+.todo-input {
   flex: 1;
   padding: 16px 20px;
   border: 2px solid #ffffff33;
@@ -79,11 +79,11 @@ main {
   color: #2d3748;
 }
 
-#todo-input::placeholder {
+.todo-input::placeholder {
   color: #a0aec0;
 }
 
-#todo-input:focus {
+.todo-input:focus {
   outline: none;
   border-color: #ffffff99;
   box-shadow:

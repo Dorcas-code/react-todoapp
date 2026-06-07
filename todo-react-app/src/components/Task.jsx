@@ -40,23 +40,8 @@ function Task({ task, onToggle, onDelete }) {
         {task.text}
       </span>
 
-      <button
-        onClick={() => onDelete(task.id)}
-        className="opacity-0 group-hover:opacity-100 p-1 text-zinc-500 hover:text-red-400 transition-all"
-      >
-        <svg
-          className="w-4 h-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
+      <button onClick={() => onDelete(task.id)} className="delete-btn">
+        Delete
       </button>
     </div>
   );
