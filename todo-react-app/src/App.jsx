@@ -3,7 +3,7 @@ import Task from "./components/Task";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [errorMessage, seterrorMessage] = useState();
   const [tasks, setTasks] = useState([
     { id: 1, text: "Learn React hooks", completed: true },
     { id: 2, text: "Build a todo app", completed: true },
@@ -13,13 +13,23 @@ function App() {
   const [newTask, setNewTask] = useState("");
   const addTask = (e) => {
     e.preventDefault();
-    if (!newTask.trim()) return;
-
+    if (!newTask.trim()) {
+      return;
+    }
+    if (newTask.trim() === 0) {
+      seterrorMessage("Input cannot be empty");
+      return;
+    }
+    if (newTask.trim().length < 3) {
+      seterrorMessage("Input length cannot be smaller than 3!");
+      return;
+    }
     setTasks([
       ...tasks,
       { id: Date.now(), text: newTask.trim(), completed: false },
     ]);
     setNewTask("");
+    seterrorMessage("");
   };
 
   const toggleTask = (id) => {
@@ -38,13 +48,6 @@ function App() {
         <header>
           <h1>My Todo List</h1>
         </header>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
       </section>
       <main>
         <section className="todo-input-section ">
@@ -57,17 +60,15 @@ function App() {
                 placeholder="Enter a new todo..."
                 required
                 aria-label="New todo item"
-                className="todo-input"
+                className="todo-input w-full"
               />
               <button type="submit" className="add-btn">
                 Add Todo
               </button>
             </div>
-            <div
-              id="error-message"
-              className="error-message"
-              role="alert"
-            ></div>
+            <div id="error-message" className="error-message" role="alert">
+              {errorMessage}
+            </div>
           </form>
         </section>
 
