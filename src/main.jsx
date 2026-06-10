@@ -11,5 +11,3 @@ root.render(
     <App />
   </HashRouter>,
 );
-
-reportWebVitals();
